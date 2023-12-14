@@ -17,6 +17,20 @@ In the data preprocessing phase of this project, we tackled the initial challeng
 3. PCA of Encoded Sequences: The scatter plot generated from PCA reveals the clustering pattern of the sequences when reduced to two principal components. The spread of data points suggests variability within the dataset, with some clustering hinting at underlying groups. These clusters could correspond to sequences with similar regulatory functions or genetic relationships. The PCA plot is instrumental in visualizing high-dimensional data and can help in the identification of outliers or data points that warrant further investigation.
 <img width="403" alt="image" src="https://github.com/ekans24/Machine-Learning-Analysis-of-E.-Coli-Promoter-Gene-Sequences/assets/93953899/e94f0f53-25b7-4f98-a223-ee4bfc54d24f">
 
+## Feature Selection Methodology
+In the feature selection process, we aimed to choose a subset of relevant features from a dataset based on entropy values. Entropy measures the diversity or uncertainty of data at each position within a biological sequence.
+
+### Entropy Thresholds
+Two entropy thresholds were defined for this analysis:
+
+- High Entropy Threshold: This threshold was set at the 75th percentile of entropy values. It targeted positions with high diversity, ensuring that we focus on the most variable regions of the sequence.
+
+- Low Entropy Threshold: Conversely, the low entropy threshold was established at the 25th percentile of entropy values. It was used to identify positions with low diversity and higher conservation, allowing us to capture conserved regions.
+
+The choice of these specific percentiles aimed to capture the extremes of entropy values, effectively balancing diversity and conservation in feature selection.
+
+This feature selection process was important because it allowed us to retain essential information while reducing the dimensionality of the data. By selecting features based on entropy thresholds, we could improve model performance, reduce computational complexity, and enhance the interpretability of the results, which are critical aspects of data analysis and machine learning.
+
 ### 1. Logistic Regression
 - Accuracy: 0.875
 - Precision: 0.842
