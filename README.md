@@ -48,7 +48,32 @@ This feature selection process was important because it allowed us to retain ess
 - Best Cross-Validation Score: 0.932
 
 ### 4. Neural Network
-Test Accuracy: 0.90625 (90.625%)
+
+The model is constructed using TensorFlow's Keras API, a high-level neural networks library. The architecture of the model is delineated, followed by a discussion of its compilation, training, and evaluation stages.
+
+Model Architecture:
+
+1. Model Type: The architecture utilizes a Sequential model, indicating a linear stack of layers.
+
+2. Input Layer: The first layer is a Dense layer with 128 neurons, receiving input of a size specified by X_train.shape[1]. The layer uses a ReLU activation function, which is effective for non-linear data transformations.
+
+3. Regularization Layers: Two Dropout layers are introduced with a dropout rate of 0.5. These layers are crucial in preventing overfitting by randomly setting a portion of the input units to 0 during training.
+
+4. Intermediate Layer: An additional Dense layer with 64 neurons follows, also using the ReLU activation function. This layer adds depth to the model, allowing for more complex patterns to be learned.
+
+5. Output Layer: The final layer is a Dense layer with a single neuron utilizing a sigmoid activation function, ideal for binary classification problems as it outputs probabilities.
+
+
+Optimizer: The Adam optimizer is used, known for its efficiency in handling large amounts of data and adaptive learning rate capabilities.
+Loss Function: Binary crossentropy is chosen as the loss function, which is standard for binary classification tasks.
+Metrics: The model includes accuracy as a metric to monitor during training and evaluation.
+
+For the training process, the model is trained using the fit method with the training data (X_train and y_train). A validation split of 20% is used, allowing for the assessment of model performance on unseen data during training.
+The training is set for 50 epochs with a batch size of 10, balancing the speed of training with the model's ability to generalize.
+
+Post-training, the model is evaluated on a separate test dataset (X_test and y_test). The final accuracy of the model on this test set is Test Accuracy: 0.90625 (90.625%), providing an estimate of the model's performance on new, unseen data.
+
+This neural network architecture demonstrates a straightforward yet effective approach to binary classification tasks. The inclusion of Dropout layers to combat overfitting, along with a well-thought-out layer structure, makes this model suitable for a variety of binary classification problems. The use of the Adam optimizer and binary crossentropy loss function further aligns the model's design with best practices in the field of deep learning.
 
 ## Interpretations:
 - Logistic Regression performed quite well considering its simplicity, with high accuracy, precision, and recall.
